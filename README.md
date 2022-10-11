@@ -1,3 +1,9 @@
+# 💫HAII Audio player 8team
+
+### JUSTCODE 6기 기업협업 2주차 1번째 과제-오디오 재생 프로그램- 8팀
+
+<br />
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
