@@ -1,76 +1,120 @@
-# 💫HAII Audio player 8team
+# 💫 HAII Audio player 8team
 
 ### JUSTCODE 6기 기업협업 2주차 1번째 과제-오디오 재생 프로그램- 8팀
 
 <br />
 
-# Getting Started with Create React App
+### **[📌링크](https://2021bong.github.io/haii-audio-player-8team/)**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+<br />
 
-In the project directory, you can run:
+## 🗓 개발 기간
 
-### `npm start`
+<br />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**기간** : 2022.10.11 ~ 2022.10.13(3일)
+<br />
+<br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🤹 팀원 및 협업 방식
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+**팀원**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 박유빈
+- 봉원희
+- 이은지
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**협업 방식**
 
-### `npm run eject`
+- **[팀 노션](https://www.notion.so/wecode/aae6c129b9c448c0a0ded1c5fb783437?p=c2f52017627b4bd881575a29681a0415&pm=c)**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  <br />
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🚧 프로그램 실행 방법 및 파일 프로젝트 구조
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  <br />
 
-## Learn More
+### 프로그램 실행 방법
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<br />
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1.  터미널을 키고 원하는 폴더 경로로 이동해 레포지토리를 클론 받습니다.
 
-### Code Splitting
+```
+git clone https://github.com/2021bong/haii-audio-player-8team.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br />
 
-### Analyzing the Bundle Size
+2.  클론 받은 폴더로 이동해 패키지를 다운 받습니다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+npm i
+```
 
-### Making a Progressive Web App
+<br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3.  프로젝트를 실행합니다.
 
-### Advanced Configuration
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br />
 
-### Deployment
+4. 브라우저가 켜지고 프로젝트를 확인 할 수 있습니다.
+   <br />
+   <br />
+   <br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 파일 프로젝트 구조
 
-### `npm run build` fails to minify
+- `public/data`: Mock 데이터 폴더
+- `src/pages/record`: 음성 녹음 페이지 파일 폴더
+- `src/pages/audio`: 음성 재생 페이지 파일 폴더
+- `src/styles`: 전역 스타일 관리 폴더
+  <br />
+  <br />
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 🛠 적용 기술 및 구현 기능
+
+<br />
+
+### 적용 기술
+
+- JavaScript
+- React.js
+- react-router-dom
+- styled-components
+- react icons
+- gh-pages
+
+<br />
+
+### 구현 기능
+
+- ✅ 음성 녹음 페이지
+
+  - 봉원희
+
+  <br />
+
+- ✅ 음성 재생 페이지
+
+  - 박유빈
+
+  <br />
+
+  - 이은지
