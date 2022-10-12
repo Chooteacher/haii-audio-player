@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
+import WaveSurfer from 'wavesurfer';
 import styled from 'styled-components';
 
 const AudioPlay = () => {
   const audioRef = useRef(null);
+  const wavesurferRef = useRef(null);
   const [totalTime, setTotalTime] = useState(null);
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
@@ -33,8 +35,19 @@ const AudioPlay = () => {
     });
   }, []);
 
+  useEffect(() => {
+    if (wavesurferRef.current) return;
+    wavesurferRef.current = WaveSurfer.create({
+      container: '#waveform',
+      waveColor: '#3089f6',
+      progressColor: '#3958fe',
+    });
+    wavesurferRef.current.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3');
+  }, []);
+
   return (
     <AudioPlayer>
+      <div id='waveform'></div>
       <button
         onClick={() => {
           if (audioRef.current) {
