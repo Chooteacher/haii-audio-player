@@ -2,17 +2,20 @@ import { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer';
 import styled from 'styled-components';
 
-const AudioPlay = () => {
+const AudioPlay = ({ setAudioSrc }) => {
   const audioRef = useRef(null);
   const wavesurferRef = useRef(null);
   const [totalTime, setTotalTime] = useState(null);
   const [currentTime, setCurrentTime] = useState(null);
   const [percent, setPercent] = useState(0);
+  const [playToggle, setPlayToggle] = useState(true);
+  const [repeatToggle, setRepeatToggle] = useState(true);
 
   useEffect(() => {
     if (audioRef.current) return;
     const audio = new Audio();
-    audio.src = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3';
+    audio.src = '/data/dreams.mp3';
+    setAudioSrc(audio.src);
     audioRef.current = audio;
 
     audioRef.current.addEventListener('loadedmetadata', () => {
@@ -39,8 +42,8 @@ const AudioPlay = () => {
     if (wavesurferRef.current) return;
     wavesurferRef.current = WaveSurfer.create({
       container: '#waveform',
-      waveColor: '#3089f6',
-      progressColor: '#3958fe',
+      waveColor: '#D7D6FF',
+      progressColor: '#6A6AFE',
     });
     wavesurferRef.current.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3');
   }, []);
@@ -48,49 +51,130 @@ const AudioPlay = () => {
   return (
     <AudioPlayer>
       <div id='waveform'></div>
-      <button
-        onClick={() => {
-          if (audioRef.current) {
-            audioRef.current.play();
-          }
-        }}>
-        재생 버튼
-      </button>
-      <button
-        onClick={() => {
-          if (audioRef.current) {
-            audioRef.current.pause();
-          }
-        }}>
-        일시정지 버튼
-      </button>
-      <button
-        onClick={() => {
-          if (audioRef.current) {
-            audioRef.current.pause();
-            audioRef.current.currentTime = 0;
-          }
-        }}>
-        정지 버튼
-      </button>
-      <input
-        type='range'
-        min='0'
-        max='100'
-        value={percent}
-        onChange={(e) => {
-          const percent = e.target.value;
-          const audio = audioRef.current;
-          audio.currentTime = (audio.duration / 100) * percent;
-          setPercent(percent);
-        }}
-      />
-      <p>{currentTime ?? '0:0'}</p>
-      <p>{totalTime ?? '0:0'}</p>
+      <div className='btnBox'>
+        {playToggle ? (
+          <button
+            className='contentBtn'
+            onClick={() => {
+              if (audioRef.current) {
+                setPlayToggle(!playToggle);
+                audioRef.current.play();
+              }
+            }}>
+            <img src='/images/play.png'></img>
+          </button>
+        ) : (
+          <button
+            className='contentBtn'
+            onClick={() => {
+              if (audioRef.current) {
+                setPlayToggle(!playToggle);
+                audioRef.current.pause();
+              }
+            }}>
+            <img src='/images/pause.png'></img>
+          </button>
+        )}
+        <button
+          className='contentBtn'
+          onClick={() => {
+            if (audioRef.current) {
+              audioRef.current.pause();
+              audioRef.current.currentTime = 0;
+            }
+          }}>
+          <img src='/images/stop.png' className='stopIcon'></img>
+        </button>
+        {repeatToggle ? (
+          <button
+            className='contentBtn'
+            onClick={() => {
+              setRepeatToggle(!repeatToggle);
+            }}>
+            <img src='/images/again.png' className='repeatToggle'></img>
+          </button>
+        ) : (
+          <button
+            className='contentBtn'
+            onClick={() => {
+              setRepeatToggle(!repeatToggle);
+            }}>
+            <img src='/images/repeat.png' className='repeatToggle'></img>
+          </button>
+        )}
+        <button className='contentBtn'>
+          <img src='/images/sound.png' className='soundIcon'></img>
+        </button>
+      </div>
+      <div className='inputBox'>
+        <p className='currentTime'>{currentTime ?? '0:0'}</p>
+        <p className='totalTime'>{totalTime ?? '0:0'}</p>
+        <input
+          type='range'
+          min='0'
+          max='100'
+          value={percent}
+          onChange={(e) => {
+            const percent = e.target.value;
+            const audio = audioRef.current;
+            audio.currentTime = (audio.duration / 100) * percent;
+            setPercent(percent);
+          }}
+        />
+      </div>
     </AudioPlayer>
   );
 };
 
-const AudioPlayer = styled.div``;
+const AudioPlayer = styled.div`
+  .btnBox {
+    .contentBtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0 0;
+
+      img {
+        width: 2rem;
+      }
+
+      .stopIcon {
+        margin-left: 0.188rem;
+      }
+
+      .repeatToggle {
+        width: 1.9rem;
+      }
+
+      .soundIcon {
+        margin-left: 1.5rem;
+      }
+    }
+  }
+
+  .inputBox {
+    margin-left: 0.25rem;
+
+    input {
+      width: 90%;
+      cursor: pointer;
+    }
+
+    .currentTime {
+      width: 50%;
+      color: #6b6bfe;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .totalTime {
+      width: 40%;
+      color: #6b6bfe;
+      font-weight: 600;
+      text-align: right;
+      display: inline-block;
+    }
+  }
+`;
 
 export default AudioPlay;
