@@ -169,9 +169,30 @@ const AudioPlayer = styled.div`
   .inputBox {
     margin-left: 0.25rem;
 
-    input {
+    input[type='range'] {
+      -webkit-appearance: none;
+
       width: 90%;
+      background: transparent;
+    }
+
+    input[type='range']:focus {
+      outline: none;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
       cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid ${({ theme }) => theme.mainSkyBlue};
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px;
+      background: #ffffff;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid ${({ theme }) => theme.mainBlue};
     }
 
     .currentTime {
