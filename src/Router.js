@@ -7,7 +7,7 @@ import * as Theme from './styles/Theme';
 const Router = (props) => {
   return (
     <ThemeProvider theme={Theme}>
-      <BrowserRouter>
+      <BrowserRouter basename='haii-audio-player-8team'>
         <Routes>
           <Route path='/' element={<RecordMain />} />
           <Route path='/audio' element={<AudioPlayer />} />
