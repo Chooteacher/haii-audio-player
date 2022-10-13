@@ -42,7 +42,7 @@ const AudioPlay = ({ setAudioSrc }) => {
     if (wavesurferRef.current) return;
     const options = formWaveSurferOptions(audioRef.current);
     wavesurferRef.current = WaveSurfer.create(options);
-    wavesurferRef.current.load('/data/dreams.mp3');
+    wavesurferRef.current.load('data/dreams.mp3');
     wavesurferRef.current.setVolume(0);
   }, []);
 
