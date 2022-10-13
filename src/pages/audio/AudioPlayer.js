@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AudioPlayerContainer } from './AudioPlayer.styled';
 import AudioDownload from './components/AudioDownload';
-import AudioPlay from '../audio/AudioPlay';
+import AudioPlay from './components/AudioPlay';
 
 const AudioPlayer = () => {
   const navigate = useNavigate();
@@ -13,9 +13,9 @@ const AudioPlayer = () => {
       <div className='audioTitle'>
         <span
           onClick={() => {
-            navigate('/');
+            navigate('/record');
           }}>
-          HOME
+          Record
         </span>
       </div>
       <div className='audioTextBox'>

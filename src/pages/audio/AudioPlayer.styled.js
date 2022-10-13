@@ -11,7 +11,7 @@ export const AudioPlayerContainer = styled.div`
   margin-top: 3.125rem;
 
   .audioTitle {
-    margin-bottom: 0.938rem;
+    margin-bottom: 1rem;
     text-align: center;
 
     span {
@@ -25,7 +25,7 @@ export const AudioPlayerContainer = styled.div`
 
   .audioTextBox {
     width: 414px;
-    height: 70vh;
+    height: 60vh;
     padding-top: 1.857rem;
     padding-bottom: 4.375rem;
     background-image: linear-gradient(-225deg, #3089f6 0%, #6e6eff 51%, #3958fe 100%);
