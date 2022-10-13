@@ -23,18 +23,18 @@ const AudioPlay = ({ setAudioSrc }) => {
       const minutes = Math.floor(duration / 60);
       const seconds = Math.floor(duration % 60);
       const time = `${minutes}:${seconds}`;
-      // audio 총 재생시간
       setTotalTime(time);
     });
 
     audioRef.current.addEventListener('timeupdate', () => {
-      // 현재 시간을 분과 초로 보기
       const minutes = Math.floor(audio.currentTime / 60);
       const seconds = Math.floor(audio.currentTime % 60);
       const time = `${minutes}:${seconds}`;
-      // audio의 현재 재생시간
       setCurrentTime(time);
       setPercent((audio.currentTime / audio.duration) * 100);
+      if (wavesurferRef.current) {
+        wavesurferRef.current.seekAndCenter(audio.currentTime / audio.duration);
+      }
     });
   }, []);
 
@@ -43,6 +43,7 @@ const AudioPlay = ({ setAudioSrc }) => {
     const options = formWaveSurferOptions(audioRef.current);
     wavesurferRef.current = WaveSurfer.create(options);
     wavesurferRef.current.load('/data/dreams.mp3');
+    wavesurferRef.current.setVolume(0);
   }, []);
 
   const formWaveSurferOptions = () => ({
