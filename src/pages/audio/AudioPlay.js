@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import WaveSurfer from 'wavesurfer';
+import WaveSurfer from 'wavesurfer.js';
 import styled from 'styled-components';
 
 const AudioPlay = ({ setAudioSrc }) => {
@@ -40,13 +40,23 @@ const AudioPlay = ({ setAudioSrc }) => {
 
   useEffect(() => {
     if (wavesurferRef.current) return;
-    wavesurferRef.current = WaveSurfer.create({
-      container: '#waveform',
-      waveColor: '#D7D6FF',
-      progressColor: '#6A6AFE',
-    });
-    wavesurferRef.current.load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/858/outfoxing.mp3');
+    const options = formWaveSurferOptions(audioRef.current);
+    wavesurferRef.current = WaveSurfer.create(options);
+    wavesurferRef.current.load('/data/dreams.mp3');
   }, []);
+
+  const formWaveSurferOptions = () => ({
+    container: '#waveform',
+    waveColor: '#D7D6FF',
+    progressColor: '#6A6AFE',
+    cursorColor: '#5092CD',
+    barWidth: 2,
+    barRadius: 3,
+    responsive: true,
+    height: 70,
+    normalize: true,
+    partialRender: true,
+  });
 
   return (
     <AudioPlayer>
@@ -59,6 +69,7 @@ const AudioPlay = ({ setAudioSrc }) => {
               if (audioRef.current) {
                 setPlayToggle(!playToggle);
                 audioRef.current.play();
+                wavesurferRef.current.play();
               }
             }}>
             <img src='/images/play.png'></img>
@@ -70,6 +81,7 @@ const AudioPlay = ({ setAudioSrc }) => {
               if (audioRef.current) {
                 setPlayToggle(!playToggle);
                 audioRef.current.pause();
+                wavesurferRef.current.pause();
               }
             }}>
             <img src='/images/pause.png'></img>
@@ -79,8 +91,10 @@ const AudioPlay = ({ setAudioSrc }) => {
           className='contentBtn'
           onClick={() => {
             if (audioRef.current) {
+              setPlayToggle(true);
               audioRef.current.pause();
               audioRef.current.currentTime = 0;
+              wavesurferRef.current.stop();
             }
           }}>
           <img src='/images/stop.png' className='stopIcon'></img>
