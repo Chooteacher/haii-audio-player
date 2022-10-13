@@ -123,7 +123,7 @@ npm start
 
 - ✅ 오디오 재생 페이지
 
-  ![음성 재생 페이지](https://user-images.githubusercontent.com/49029756/195725395-6dc3a3a0-48e4-4752-a232-054c1567e109.png)
+  ![오디오 재생 페이지](https://user-images.githubusercontent.com/49029756/195729398-9aef008d-4c36-4587-ba54-74aa2a8cf86e.png)
 
 - 박유빈
 
