@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { HiOutlineMicrophone } from 'react-icons/hi';
 
 let countTime;
-const Recording = ({ recording, limitTime, setRecording }) => {
-  const [time, setTime] = useState(1);
+const Recording = ({ recording, limitTime, handleRecording }) => {
+  const [time, setTime] = useState(0);
 
   useEffect(() => {
     countTime = setInterval(() => {
@@ -15,7 +15,7 @@ const Recording = ({ recording, limitTime, setRecording }) => {
   useEffect(() => {
     if (time >= limitTime) {
       clearInterval(countTime);
-      setRecording(false);
+      handleRecording();
     }
   }, [time]);
 

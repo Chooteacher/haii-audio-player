@@ -11,7 +11,7 @@ export const AudioPlayerContainer = styled.div`
   margin-top: 3.125rem;
 
   .audioTitle {
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     text-align: center;
 
     span {
@@ -34,7 +34,7 @@ export const AudioPlayerContainer = styled.div`
     align-items: center;
     margin: auto;
     border: 0.063rem solid #f5f7fa;
-    border-radius: 0.5rem;
+    border-radius: 15px;
 
     .audioText {
       font-size: 3.6rem;

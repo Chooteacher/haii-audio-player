@@ -10,23 +10,23 @@ const AudioPlayer = () => {
 
   return (
     <AudioPlayerContainer>
-      <div className='audioTitle'>
-        <span
-          onClick={() => {
-            navigate('/record');
-          }}>
-          Record
-        </span>
-      </div>
       <div className='audioTextBox'>
         <span className='audioText'>Audio Player</span>
         <div className='audioContentBox'>
           <AudioDownload audioSrc={audioSrc} />
           <div className='albumImgBox'>
-            <iframe src='https://giphy.com/embed/hs7piNujovlLgMsHWm'></iframe>
+            <iframe src='https://giphy.com/embed/hs7piNujovlLgMsHWm' title='player image'></iframe>
             <AudioPlay audioSrc={audioSrc} setAudioSrc={setAudioSrc} />
           </div>
         </div>
+      </div>
+      <div className='audioTitle'>
+        <span
+          onClick={() => {
+            navigate('/');
+          }}>
+          Go Record
+        </span>
       </div>
     </AudioPlayerContainer>
   );

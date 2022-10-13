@@ -73,7 +73,7 @@ const AudioPlay = ({ setAudioSrc }) => {
                 wavesurferRef.current.play();
               }
             }}>
-            <img alt='재생' src='/images/play.png' />
+            <img alt='재생' src='images/play.png' />
           </button>
         ) : (
           <button
@@ -85,7 +85,7 @@ const AudioPlay = ({ setAudioSrc }) => {
                 wavesurferRef.current.pause();
               }
             }}>
-            <img alt='일시정지' src='/images/pause.png' />
+            <img alt='일시정지' src='images/pause.png' />
           </button>
         )}
         <button
@@ -98,7 +98,7 @@ const AudioPlay = ({ setAudioSrc }) => {
               wavesurferRef.current.stop();
             }
           }}>
-          <img alt='정지' src='/images/stop.png' className='stopIcon' />
+          <img alt='정지' src='images/stop.png' className='stopIcon' />
         </button>
         {repeatToggle ? (
           <button
@@ -106,7 +106,7 @@ const AudioPlay = ({ setAudioSrc }) => {
             onClick={() => {
               setRepeatToggle(!repeatToggle);
             }}>
-            <img alt='반복' src='/images/again.png' className='repeatToggle' />
+            <img alt='반복' src='images/again.png' className='repeatToggle' />
           </button>
         ) : (
           <button
@@ -114,11 +114,11 @@ const AudioPlay = ({ setAudioSrc }) => {
             onClick={() => {
               setRepeatToggle(!repeatToggle);
             }}>
-            <img alt='반복' src='/images/repeat.png' className='repeatToggle' />
+            <img alt='반복' src='images/repeat.png' className='repeatToggle' />
           </button>
         )}
         <button className='contentBtn'>
-          <img alt='볼륨' src='/images/sound.png' className='soundIcon' />
+          <img alt='볼륨' src='images/sound.png' className='soundIcon' />
         </button>
       </div>
       <div className='inputBox'>

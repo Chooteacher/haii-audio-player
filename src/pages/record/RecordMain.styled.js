@@ -14,11 +14,11 @@ export const Wrap = styled.div`
     background-color: #fff;
     border-radius: 0;
     overflow: hidden;
-    color: #555;
+    color: ${({ theme }) => theme.text};
 
     @media (min-width: 415px) {
-      border-radius: 15px;
-      margin: 30px auto;
+      border-radius: 0.938rem;
+      margin: 1.875rem auto;
     }
 
     .headContainer {
@@ -27,7 +27,7 @@ export const Wrap = styled.div`
       text-align: center;
       h1 {
         color: #fff;
-        font-size: 20px;
+        font-size: 1.25rem;
         font-weight: 700;
       }
     }
@@ -38,7 +38,7 @@ export const Wrap = styled.div`
       justify-content: center;
       align-items: center;
       height: 65%;
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
 
       svg {
         margin-bottom: 10px;
@@ -50,8 +50,8 @@ export const Wrap = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 30px;
-      margin-bottom: 20px;
+      height: 1.875rem;
+      margin-bottom: 1.25rem;
       padding: 1rem;
       text-align: center;
       .title {
@@ -64,40 +64,56 @@ export const Wrap = styled.div`
         margin-right: 10px;
         border: 1px solid #bbb;
         border-radius: 5px;
-        color: #555;
-        font-size: 16px;
+        font-size: 1rem;
         outline: none;
         cursor: pointer;
 
         option {
           padding: 3px;
+          color: ${({ theme }) => theme.text};
         }
       }
     }
     .countContainer {
-      height: 30px;
-      margin-bottom: 22px;
+      height: 1.875rem;
+      margin-bottom: 1.375rem;
       text-align: center;
     }
 
     .btnContaier {
       display: flex;
       justify-content: center;
-      .startBtn {
+      align-items: center;
+      flex-direction: column;
+      .btn {
         width: 70%;
         height: 2.5rem;
-        margin: 0 auto;
         padding: 3px;
         border: none;
         border-radius: 5px;
         background: linear-gradient(to left top, #3958fe 30%, #3089f6);
         color: #fff;
-        font-size: 16px;
+        font-size: 1rem;
         cursor: pointer;
 
         &:active {
           background: #2541d9;
         }
+      }
+
+      .listenBtn {
+        margin-top: 5px;
+
+        a {
+          color: #fff;
+          font-size: 1rem;
+        }
+      }
+
+      .goToAudio {
+        margin-top: 1.25rem;
+        color: ${({ theme }) => theme.mainBlue};
+        font-size: 1.5rem;
       }
     }
   }
