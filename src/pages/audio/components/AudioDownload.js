@@ -5,7 +5,7 @@ const AudioDownload = ({ audioSrc }) => {
     <AudioDownloadStyled>
       <a href={audioSrc} download>
         <button className='contentBtn'>
-          <img src='images/favorite.png'></img>
+          <img src='images/favorite.png' alt='heart icon'></img>
         </button>
       </a>
     </AudioDownloadStyled>

@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';
 import styled from 'styled-components';
 
-const AudioPlay = ({ setAudioSrc }) => {
+const AudioPlay = forwardRef(({ setAudioSrc }, ref) => {
   const audioRef = useRef(null);
   const wavesurferRef = useRef(null);
   const [totalTime, setTotalTime] = useState(null);
@@ -10,6 +10,10 @@ const AudioPlay = ({ setAudioSrc }) => {
   const [percent, setPercent] = useState(0);
   const [playToggle, setPlayToggle] = useState(true);
   const [repeatToggle, setRepeatToggle] = useState(true);
+
+  useImperativeHandle(ref, () => ({
+    musicStop,
+  }));
 
   useEffect(() => {
     if (audioRef.current) return;
@@ -59,6 +63,15 @@ const AudioPlay = ({ setAudioSrc }) => {
     partialRender: true,
   });
 
+  const musicStop = () => {
+    if (audioRef.current) {
+      setPlayToggle(true);
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      wavesurferRef.current.stop();
+    }
+  };
+
   return (
     <AudioPlayer>
       <div id='waveform'></div>
@@ -88,16 +101,7 @@ const AudioPlay = ({ setAudioSrc }) => {
             <img alt='일시정지' src='images/pause.png' />
           </button>
         )}
-        <button
-          className='contentBtn'
-          onClick={() => {
-            if (audioRef.current) {
-              setPlayToggle(true);
-              audioRef.current.pause();
-              audioRef.current.currentTime = 0;
-              wavesurferRef.current.stop();
-            }
-          }}>
+        <button ref={ref} className='contentBtn' onClick={musicStop}>
           <img alt='정지' src='images/stop.png' className='stopIcon' />
         </button>
         {repeatToggle ? (
@@ -139,7 +143,7 @@ const AudioPlay = ({ setAudioSrc }) => {
       </div>
     </AudioPlayer>
   );
-};
+});
 
 const AudioPlayer = styled.div`
   .btnBox {
