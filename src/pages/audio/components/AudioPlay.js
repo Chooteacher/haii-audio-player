@@ -14,7 +14,7 @@ const AudioPlay = ({ setAudioSrc }) => {
   useEffect(() => {
     if (audioRef.current) return;
     const audio = new Audio();
-    audio.src = '/data/dreams.mp3';
+    audio.src = 'data/dreams.mp3';
     setAudioSrc(audio.src);
     audioRef.current = audio;
 
